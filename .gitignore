@@ -1,0 +1,6 @@
+.gradle
+.idea
+build/
+src/main/kotlin/.DS_Store
+
+src/main/.DS_Store
