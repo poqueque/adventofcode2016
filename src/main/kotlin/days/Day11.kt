@@ -1,19 +1,10 @@
 package days
 
-const val ANSI_RESET = "\u001B[0m"
-const val ANSI_BLACK = "\u001B[30m"
-const val ANSI_RED = "\u001B[31m"
-const val ANSI_GREEN = "\u001B[32m"
-const val ANSI_YELLOW = "\u001B[33m"
-const val ANSI_BLUE = "\u001B[34m"
-const val ANSI_PURPLE = "\u001B[35m"
-const val ANSI_CYAN = "\u001B[36m"
-const val ANSI_WHITE = "\u001B[37m"
-const val KEYS = "0123456789abcdefghijklmnopqrstuvwxyz"
+import util.ANSI_RED
+import util.ANSI_RESET
+import util.KEYS
 
 class Day11 : Day(11) {
-
-    private val bad = 100
 
     companion object {
         var totalProperties: List<String>? = null
@@ -26,8 +17,6 @@ class Day11 : Day(11) {
         inputList[2].split(" ").filter { it != "" }.toMutableList(),
         inputList[3].split(" ").filter { it != "" }.toMutableList(),
     )
-
-    private var history = mutableListOf<State>()
     private var validStates = mutableListOf<State>()
 
     data class Move(val direction: String, val inElevator: List<String>)
@@ -266,6 +255,7 @@ class Day11 : Day(11) {
         initialFloors[0].add("ELM")
         initialFloors[0].add("DIG")
         initialFloors[0].add("DIM")
-        return 0
+        validStates.clear()
+        return partOne()
     }
 }
