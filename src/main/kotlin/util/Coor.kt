@@ -24,6 +24,8 @@ data class Coor(var x: Int, var y: Int) {
         return sqrt(x*x+y*y.toDouble())
     }
 
+    val around get() = mutableListOf(Coor(x-1,y),Coor(x+1,y),Coor(x,y-1),Coor(x,y+1))
+
     fun hides(d2: Coor): Boolean {
         val angle1 = atan2(y.toDouble(), x.toDouble())
         val angle2 = atan2(d2.y.toDouble(), d2.x.toDouble())
