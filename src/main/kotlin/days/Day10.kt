@@ -1,5 +1,7 @@
 package days
 
+import util.InputReader.getStringsFromExpression
+
 class Day10 : Day(10) {
     abstract class Container(val id: Int) {
         val items = mutableListOf<Int>()
@@ -62,18 +64,6 @@ class Day10 : Day(10) {
             }
 
         return 0
-    }
-
-    private fun getStringsFromExpression(expression: String, check: String): List<String>? {
-        val expData = expression.split(" ")
-        val checkData = check.split(" ")
-        if (expData.size != checkData.size) return null
-        val strs = mutableListOf<String>()
-        for (i in expData.indices) {
-            if (expData[i] == "$") strs.add(checkData[i])
-            else if (expData[i] != checkData[i]) return null
-        }
-        return strs;
     }
 
     override fun partTwo(): Any {
