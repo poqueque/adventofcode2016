@@ -20,11 +20,27 @@ data class Coor(var x: Int, var y: Int) {
         return Coor(x * i, y * i)
     }
 
-    fun mod(): Double {
-        return sqrt(x*x+y*y.toDouble())
+    fun right(): Coor {
+        return Coor(x + 1, y)
     }
 
-    val around get() = mutableListOf(Coor(x-1,y),Coor(x+1,y),Coor(x,y-1),Coor(x,y+1))
+    fun left(): Coor {
+        return Coor(x - 1, y)
+    }
+
+    fun up(): Coor {
+        return Coor(x, y - 1)
+    }
+
+    fun down(): Coor {
+        return Coor(x, y + 1)
+    }
+
+    fun mod(): Double {
+        return sqrt(x * x + y * y.toDouble())
+    }
+
+    val around get() = mutableListOf(Coor(x - 1, y), Coor(x + 1, y), Coor(x, y - 1), Coor(x, y + 1))
 
     fun hides(d2: Coor): Boolean {
         val angle1 = atan2(y.toDouble(), x.toDouble())

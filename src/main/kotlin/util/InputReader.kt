@@ -12,6 +12,20 @@ object InputReader {
         return fromResources(day).readLines()
     }
 
+    fun getInputAsCoorMap(day: Int): Map<Coor,String> {
+        var line = 0
+        val map = mutableMapOf<Coor,String>()
+        fromResources(day).readLines().forEach {
+            var col = 0
+            it.forEach {
+                map[Coor(col,line)] = it.toString()
+                col++
+            }
+            line++
+        }
+        return map
+    }
+
     fun getStringsFromExpression(expression: String, check: String): List<String>? {
         val expData = expression.split(" ")
         val checkData = check.split(" ")
